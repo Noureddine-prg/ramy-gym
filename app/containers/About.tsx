@@ -1,11 +1,10 @@
 import { Section } from "../styles/Global";
 
-const Schedule = () => {
+const About = () => {
   return (
     <Section>
-      <div>Schedule</div>
+      <div>About</div>
     </Section>
   );
 };
-
-export default Schedule;
+export default About;

@@ -1,24 +1,38 @@
 import Link from "next/link";
-import { Nav, NavLink, NavLogo } from "../styles/Navbar";
+import {
+  Nav,
+  NavLink,
+  NavLogo,
+  LogoContainer,
+  LinkContainer,
+  LinkList,
+} from "../styles/Navbar";
 import { ButtonVariationA } from "../styles/Global";
 
 const Navbar = () => {
   return (
     <Nav>
-      <NavLogo>[Test Image Logo]</NavLogo>
-      <Link href="/">
-        <NavLink>About</NavLink>
-      </Link>
+      <LogoContainer>
+        <NavLogo>EXAMPLE LOGO</NavLogo>
+      </LogoContainer>
 
-      <Link href="/">
-        <NavLink>Services</NavLink>
-      </Link>
+      <LinkList>
+        <LinkContainer>
+          <NavLink href="/About">About</NavLink>
+        </LinkContainer>
 
-      <Link href="/">
-        <NavLink>Schedule</NavLink>
-      </Link>
+        <LinkContainer>
+          <NavLink href="/Services">Services</NavLink>
+        </LinkContainer>
 
-      <ButtonVariationA>Book Session</ButtonVariationA>
+        <LinkContainer>
+          <NavLink href="/Schedule">Schedule</NavLink>
+        </LinkContainer>
+
+        <ButtonVariationA>Book Session</ButtonVariationA>
+      </LinkList>
     </Nav>
   );
 };
+
+export default Navbar;

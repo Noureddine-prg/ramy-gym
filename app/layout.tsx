@@ -1,12 +1,7 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+"use client";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Ramy's Gym",
-  description: "Boxing Gym Website",
-};
+import Navbar from "./components/Navbar";
+import { GlobalStyles } from "./styles/Global";
 
 export default function RootLayout({
   children,
@@ -15,7 +10,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <GlobalStyles />
+      <body>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

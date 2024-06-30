@@ -1,11 +1,11 @@
 import { Section } from "../styles/Global";
 
-const Schedule = () => {
+const Gallery = () => {
   return (
     <Section>
-      <div>Schedule</div>
+      <div>Gallery</div>
     </Section>
   );
 };
 
-export default Schedule;
+export default Gallery;
