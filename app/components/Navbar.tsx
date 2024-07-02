@@ -1,37 +1,42 @@
-import Link from "next/link";
-import {
-  Nav,
-  NavLink,
-  NavLogo,
-  LogoContainer,
-  LinkContainer,
-  LinkList,
-} from "../styles/Navbar";
-import { ButtonVariationA } from "../styles/Global";
+import ButtonVariationA from "./Buttons";
 
 const Navbar = () => {
   return (
-    <Nav>
-      <LogoContainer>
-        <NavLogo>EXAMPLE LOGO</NavLogo>
-      </LogoContainer>
+    <nav className="bg-gray-900 p-4 flex items-center justify-between sticky top-0 z-1000 w-full">
+      <div className="flex justify-center items-center h-20 bg-white px-4">
+        <div className="text-gray-900 font-bold text-2xl">Logo</div>
+      </div>
+      <ul className="flex list-none m-0 p-0 items-center">
+        <li className="mx-5">
+          <a
+            href="#"
+            className="text-white no-underline font-bold text-lg hover:underline"
+          >
+            About
+          </a>
+        </li>
+        <li className="mx-5">
+          <a
+            href="/About"
+            className="text-white no-underline font-bold text-lg hover:underline"
+          >
+            Services
+          </a>
+        </li>
+        <li className="mx-5 ">
+          <a
+            href="#"
+            className="text-white no-underline font-bold text-lg hover:underline"
+          >
+            Schedule
+          </a>
+        </li>
 
-      <LinkList>
-        <LinkContainer>
-          <NavLink href="/About">About</NavLink>
-        </LinkContainer>
-
-        <LinkContainer>
-          <NavLink href="/Services">Services</NavLink>
-        </LinkContainer>
-
-        <LinkContainer>
-          <NavLink href="/Schedule">Schedule</NavLink>
-        </LinkContainer>
-
-        <ButtonVariationA>Book Session</ButtonVariationA>
-      </LinkList>
-    </Nav>
+        <li>
+          <ButtonVariationA>Book Session</ButtonVariationA>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

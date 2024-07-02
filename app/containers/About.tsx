@@ -1,4 +1,4 @@
-import { Section } from "../styles/Global";
+import Section from "../components/Section";
 
 const About = () => {
   return (
