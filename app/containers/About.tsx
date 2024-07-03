@@ -3,7 +3,7 @@ import Section from "../components/Section";
 const About = () => {
   return (
     <Section>
-      <div>About</div>
+      <div>About Section</div>
     </Section>
   );
 };
