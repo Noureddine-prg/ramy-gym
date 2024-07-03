@@ -2,7 +2,7 @@ import ButtonVariationA from "./Buttons";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 p-4 flex items-center justify-between sticky top-0 z-1000 w-full">
+    <nav className="bg-gray-900 p-4 flex items-center justify-between sticky top-0 z-50 w-full">
       <div className="flex justify-center items-center h-20 bg-white px-4">
         <div className="text-gray-900 font-bold text-2xl">Logo</div>
       </div>

@@ -1,5 +1,3 @@
-"use client";
-
 import Navbar from "./components/Navbar";
 import "./styles/Global.css";
 
@@ -10,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="">
         <Navbar />
         {children}
       </body>
