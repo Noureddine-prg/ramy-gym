@@ -2,7 +2,7 @@ import Section from "../components/Section";
 
 const Schedule = () => {
   return (
-    <Section>
+    <Section id="schedule">
       <div>Schedule</div>
     </Section>
   );

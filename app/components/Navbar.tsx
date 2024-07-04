@@ -7,29 +7,14 @@ const Navbar = () => {
         <div className="text-gray-900 font-bold text-2xl">Logo</div>
       </div>
       <ul className="flex list-none m-0 p-0 items-center">
-        <li className="mx-5">
-          <a
-            href="#"
-            className="text-white no-underline font-bold text-lg hover:underline"
-          >
-            About
-          </a>
+        <li className="mx-5 text-white no-underline font-bold text-lg hover:underline">
+          <a href="#about">About</a>
         </li>
-        <li className="mx-5">
-          <a
-            href="/About"
-            className="text-white no-underline font-bold text-lg hover:underline"
-          >
-            Services
-          </a>
+        <li className="mx-5 text-white no-underline font-bold text-lg hover:underline">
+          <a href="#services">Services</a>
         </li>
-        <li className="mx-5 ">
-          <a
-            href="#"
-            className="text-white no-underline font-bold text-lg hover:underline"
-          >
-            Schedule
-          </a>
+        <li className="mx-5 text-white no-underline font-bold text-lg hover:underline">
+          <a href="#schedule">Schedule</a>
         </li>
 
         <li>

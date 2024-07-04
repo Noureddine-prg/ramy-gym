@@ -1,10 +1,14 @@
 interface SectionProps {
   children: React.ReactNode;
+  id?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ children }) => {
+const Section: React.FC<SectionProps> = ({ children, id }) => {
   return (
-    <div className="w-full h-screen flex flex-col items-center justify-center border">
+    <div
+      id={id}
+      className="w-full h-screen flex flex-col items-center justify-center border"
+    >
       {children}
     </div>
   );
