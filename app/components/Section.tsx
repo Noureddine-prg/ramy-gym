@@ -7,7 +7,7 @@ const Section: React.FC<SectionProps> = ({ children, id }) => {
   return (
     <div
       id={id}
-      className="w-full h-screen flex flex-col items-center justify-center border"
+      className="w-full h-screen flex flex-col items-center justify-center"
     >
       {children}
     </div>
