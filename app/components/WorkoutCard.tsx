@@ -35,7 +35,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 
   return (
     <div
-      className="relative rounded-lg shadow-lg overflow-hidden bg-gray-100 m-4 max-w-md"
+      className="relative rounded-lg shadow-lg overflow-hidden bg-black m-4 max-w-md"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -69,7 +69,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
           )
         )}
       </div>
-      <h2 className="text-3xl font-bold absolute top-4 left-4 text-yellow-400 w-full">
+      <h2 className="text-3xl font-bold absolute top-4 left-4 text-white w-full">
         {headerText}
       </h2>
       {otherText && <p className="text-gray-700 mt-2">{otherText}</p>}

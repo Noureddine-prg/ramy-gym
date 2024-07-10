@@ -1,7 +1,7 @@
 import Hero from "./containers/Hero";
 import About from "./containers/About";
 import Schedule from "./containers/Schedule";
-import Gallery from "./containers/Gallery";
+import Trainers from "./containers/Trainers";
 import Training from "./containers/Training";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Hero />
       <About />
-      <Gallery />
+      <Trainers />
       <Training />
       <Schedule />
     </div>
