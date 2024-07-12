@@ -14,4 +14,16 @@ const Section: React.FC<SectionProps> = ({ children, id }) => {
   );
 };
 
-export default Section;
+const HalfSection: React.FC<SectionProps> = ({ children, id }) => {
+  return (
+    <div
+      id={id}
+      style={{ height: "60vh" }}
+      className="bg-white w-full flex flex-col items-center justify-center"
+    >
+      {children}
+    </div>
+  );
+};
+
+export { Section, HalfSection };

@@ -1,6 +1,6 @@
 "use client";
 
-import Section from "../components/Section";
+import { Section } from "../components/Section";
 import WorkoutCard from "../components/WorkoutCard";
 
 const Training = () => {
