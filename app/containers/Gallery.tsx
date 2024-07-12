@@ -1,10 +1,21 @@
 import { HalfSection } from "../components/Section";
+import ImageCard from "../components/ImageCard";
 
 const Gallery = () => {
+  const images = [
+    "/images/Gloves.jpg",
+    "/images/PullupWorkout.jpg",
+    "/images/Ropes.jpg",
+    "/images/Speedbag.jpg",
+    "/images/WeightLifting.jpg",
+  ];
+
   return (
     <HalfSection>
-      <div className="w-full h-full bg-white flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold">Gallery</h1>
+      <div className="absolute left-0 flex gap-4">
+        {[...images, ...images].map((item, index) => (
+          <ImageCard image={item} key={index} />
+        ))}
       </div>
     </HalfSection>
   );

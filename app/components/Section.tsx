@@ -18,8 +18,8 @@ const HalfSection: React.FC<SectionProps> = ({ children, id }) => {
   return (
     <div
       id={id}
-      style={{ height: "60vh" }}
-      className="bg-white w-full flex flex-col items-center justify-center"
+      style={{ height: "45vh" }}
+      className=" w-full flex flex-col items-center justify-center"
     >
       {children}
     </div>
