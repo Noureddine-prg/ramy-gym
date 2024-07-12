@@ -8,11 +8,15 @@ interface CardProps {
 }
 
 const ImageCard: React.FC<CardProps> = ({ image }) => {
-  const [showOverlay, setShowOverlay] = useState(true);
-
   return (
-    <div className="relative overflow-hidden h-[330px] min-w-[330px] flex justify-center rounded-lg">
-      <Image src={image} alt={image} fill style={{ objectFit: "cover" }} />
+    <div className="relative h-[330px] min-w-[330px] flex justify-center ">
+      <Image
+        src={image}
+        alt={image}
+        className="rounded-xl"
+        fill
+        style={{ objectFit: "cover" }}
+      />
     </div>
   );
 };
