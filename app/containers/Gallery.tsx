@@ -26,7 +26,7 @@ const Gallery = () => {
 
     controls = animate(xTranslation, [0, finalPosition], {
       ease: "linear",
-      duration: 10,
+      duration: 30,
       repeat: Infinity,
       repeatType: "loop",
       repeatDelay: 0,
