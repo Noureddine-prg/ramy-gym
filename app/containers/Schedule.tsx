@@ -1,10 +1,10 @@
-import { Section } from "../components/Section";
+import { HalfSection } from "../components/Section";
 
 const Schedule = () => {
   return (
-    <Section id="schedule">
+    <HalfSection id="schedule">
       <div>Schedule</div>
-    </Section>
+    </HalfSection>
   );
 };
 

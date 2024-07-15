@@ -1,4 +1,3 @@
-// components/WorkoutCard.tsx
 import React, { useState, useRef } from "react";
 
 interface WorkoutCardProps {
@@ -35,7 +34,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 
   return (
     <div
-      className="relative rounded-lg shadow-lg overflow-hidden bg-black m-4 max-w-md"
+      className=" relative rounded-lg shadow-lg overflow-hidden bg-black m-4 max-w-sm flex-shrink-0 h-5/6"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -64,21 +63,21 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
             <img
               src={imageLink}
               alt="N/A"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover object-fit rounded-lg"
             />
           )
         )}
       </div>
-      <h2 className="text-3xl font-bold absolute top-4 left-4 text-white w-full">
+      <h2 className="text-xl font-bold absolute top-4 left-4 text-white w-full p-2">
         {headerText}
       </h2>
-      {otherText && <p className="text-gray-700 mt-2">{otherText}</p>}
+
       <div
-        className={` p-4 absolute bottom-0 left-0 w-full h-36 opacity-75 bg-black text-white transition-transform duration-500 ${
+        className={`p-4 absolute bottom-0 left-0 w-full h-1/4 opacity-75 bg-black text-white transition-transform duration-500 ${
           isHovered ? "transform translate-y-0" : "transform translate-y-full"
         }`}
       >
-        {otherText}
+        {otherText && <p className="text-gray-300 mt-2">{otherText}</p>}
       </div>
     </div>
   );

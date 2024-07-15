@@ -14,7 +14,7 @@ const Navbar = () => {
           <a href="#trainer">Trainer</a>
         </li>
         <li className="mx-5 text-white no-underline font-bold text-lg ">
-          <a href="#services">Services</a>
+          <a href="#programs">Programs</a>
         </li>
         <li className="mx-5 text-white no-underline font-bold text-lg">
           <a href="#schedule">Schedule</a>

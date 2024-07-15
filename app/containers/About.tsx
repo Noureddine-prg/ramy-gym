@@ -1,4 +1,5 @@
 import { Section } from "../components/Section";
+import { ButtonVariationC, ButtonVariationD } from "../components/Buttons";
 
 const About = () => {
   return (
@@ -30,7 +31,7 @@ const About = () => {
           </div>
 
           <div className="mt-5 ">
-            <button className="w-1/4 border text-white font-semibold py-2 px-4 rounded hover:text-black hover:bg-white">
+            <button className="bg-white p-2 border rounded-xl">
               Book Session
             </button>
           </div>
