@@ -25,7 +25,7 @@ const Programs = () => {
           headerText="STRENGTH AND CONDITIONING"
           videoLink="/videos/WeightTraining.mp4"
           imageLink="/images/weight.png"
-          otherText="Meet your goals to get leaner and gain muscle by following a personalized and effective program. "
+          otherText="Build more muscles. "
         />
       </div>
     </Section>
