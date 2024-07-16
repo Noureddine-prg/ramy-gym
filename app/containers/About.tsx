@@ -4,7 +4,7 @@ import { ButtonVariationC, ButtonVariationD } from "../components/Buttons";
 const About = () => {
   return (
     <Section id="about">
-      <div className="w-full h-full flex flex-col md:flex-row p-5 py-28">
+      <div className="w-full h-full flex flex-col md:flex-row p-5 py-32">
         <div className="w-full md:w-2/5 mt-4 px-5">
           <div>
             <h3 className="text-xl font-semibold text-white mb-1 ml-1">

@@ -26,4 +26,16 @@ const HalfSection: React.FC<SectionProps> = ({ children, id }) => {
   );
 };
 
-export { Section, HalfSection };
+const MedSection: React.FC<SectionProps> = ({ children, id }) => {
+  return (
+    <div
+      id={id}
+      style={{ height: "80vh" }}
+      className="overflow-x-hidden w-screen flex flex-col items-center justify-center"
+    >
+      {children}
+    </div>
+  );
+};
+
+export { Section, HalfSection, MedSection };
