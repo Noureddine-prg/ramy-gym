@@ -19,7 +19,7 @@ const HalfSection: React.FC<SectionProps> = ({ children, id }) => {
     <div
       id={id}
       style={{ height: "40vh" }}
-      className="border-white border-t-2 border-b-2 overflow-x-hidden w-screen flex flex-col items-center justify-center hide-scrollbar"
+      className="overflow-x-hidden w-screen flex flex-col items-center justify-center hide-scrollbar"
     >
       {children}
     </div>

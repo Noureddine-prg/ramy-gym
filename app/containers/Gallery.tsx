@@ -38,7 +38,7 @@ const Gallery = () => {
   return (
     <HalfSection>
       <motion.div
-        className="overflow-x-hidden absolute left-0 flex gap-4"
+        className="overflow-x-hidden absolute left-0 flex"
         ref={ref}
         style={{ x: xTranslation }}
       >
