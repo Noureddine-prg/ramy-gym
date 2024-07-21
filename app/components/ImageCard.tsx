@@ -9,11 +9,10 @@ interface CardProps {
 
 const ImageCard: React.FC<CardProps> = ({ image }) => {
   return (
-    <div className="relative h-[300px] w-[300px] flex justify-center ">
+    <div className="relative h-[250px] w-[350px] flex justify-center ">
       <Image
         src={image}
         alt={image}
-        className="rounded-lg"
         fill
         style={{
           objectFit: "cover",
