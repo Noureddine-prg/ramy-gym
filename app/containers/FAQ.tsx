@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Section } from "../components/Section";
+import { MedSection } from "../components/Section";
 
 interface FAQItem {
   question: string;
@@ -9,6 +9,10 @@ interface FAQItem {
 }
 
 const faqData: FAQItem[] = [
+  {
+    question: "",
+    answer: "",
+  },
   {
     question: "",
     answer: "",
@@ -39,17 +43,22 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <Section id="faq">
-      <div className="w-full max-h-full">
-        <div className="w-full text-center text-4xl">
-          <h1>FAQ</h1>
-        </div>
-        <div className="w-full h-full  p-20">
+    <MedSection id="faq">
+      <div className="flex flex-col lg:flex-row justify-between w-full px-20 text-white">
+        <div className="w-full">
+          <h2 className="text-4xl font-bold mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg mb-4">
+            Have a question that is not answered? You can contact us at
+            <br />
+            <a href="mailto:" className="text-blue-400"></a>
+          </p>
           {faqData.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full text-left px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md transition duration-200"
+                className="w-full text-left px-4 py-2 bg-gray-900 hover:bg-yellow-600 rounded-sm transition duration-200"
               >
                 <div className="flex justify-between items-center">
                   <span>{faq.question}</span>
@@ -59,7 +68,7 @@ const FAQ: React.FC = () => {
               <div
                 className={`faq-answer transition-max-height duration-300 ease-in-out overflow-hidden ${
                   activeIndex === index ? "max-h-96 p-4" : "max-h-0"
-                } bg-gray-500 rounded-md mt-2`}
+                } bg-black rounded-md mt-2`}
               >
                 {faq.answer}
               </div>
@@ -67,7 +76,7 @@ const FAQ: React.FC = () => {
           ))}
         </div>
       </div>
-    </Section>
+    </MedSection>
   );
 };
 

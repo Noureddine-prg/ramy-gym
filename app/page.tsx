@@ -13,7 +13,7 @@ export default function Home() {
       <Trainers />
       <Programs />
       <FAQ />
-      <Gallery />
+      {/* <Gallery /> */}
     </div>
   );
 }
