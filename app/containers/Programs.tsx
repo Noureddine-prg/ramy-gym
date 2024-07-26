@@ -6,7 +6,7 @@ import WorkoutCard from "../components/WorkoutCard";
 const Programs = () => {
   return (
     <Section id="programs">
-      <div className="flex flex-wrap justify-center gap-20 px-4 py-12 items-center mb-20">
+      <div className="flex flex-wrap justify-center gap-4 md:gap-20 px-4 py-12 items-center mb-20">
         <WorkoutCard
           headerText="FITNESS BOXING"
           videoLink="/videos/fitboxvideo.mp4"
