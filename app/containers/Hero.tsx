@@ -14,15 +14,15 @@ const Hero = () => {
           <source src="/videos/boxerbag.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute top-0 w-full h-full bg-black bg-opacity-70 saturate-200 flex items-end justify-start md:pl-12 pb-12">
-          <div className="px-3">
+        <div className="absolute top-0 w-full h-full bg-black bg-opacity-70 saturate-200 flex items-end justify-start sm:items-center pl-0 sm:pl-0 md:pl-12 pb-12">
+          <div className="pl-0 sm:pl-3">
             <div className="text-white text-3xl md:text-7xl font-bold mt-4 leading-snug">
               FitBox Brooklyn
             </div>
             <div className="text-white text-xl md:text-5xl font-normal mt-2">
               Train With A Professional Boxer
             </div>
-            <div className="text-white text-base md:text-2xl font mt-6 w-full md:w-1/3">
+            <div className="text-white text-base md:text-2xl font mt-6 w-full md:w-1/3 ">
               At FitBox, we offer a comprehensive boxing training program
               designed to help you master the best techniques while achieving
               your unique fitness goals.

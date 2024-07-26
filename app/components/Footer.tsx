@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white py-10">
       <div className="container mx-auto px-4 flex flex-wrap justify-between items-start">
-        <div className="flex space-x-20">
+        <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-20 w-full md:w-auto">
           <div className="flex flex-col space-y-2">
             <h3 className="uppercase text-gray-400">Quick Links</h3>
             <a href="#about" className="text-gray-400 hover:text-white">
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className="mt-10 md:mt-0 text-center md:text-right">
+        <div className="mt-10 md:mt-0 text-center md:text-right w-full md:w-auto">
           <h2 className="text-2xl font-bold mb-4">FitBox Brooklyn</h2>
         </div>
       </div>

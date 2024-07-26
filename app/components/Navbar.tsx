@@ -6,7 +6,7 @@ const Navbar = () => {
   const [hoverHamburger, setHoverHamburger] = useState(false);
 
   return (
-    <nav className="py-4 px-10 flex items-center justify-between fixed top-0 z-50 w-full">
+    <nav className="py-4 px-4 sm:px-10 flex items-center justify-between fixed top-0 z-50 w-full">
       <div className="flex justify-center items-center h-20 px-4">
         <div className="text-white font-bold text-2xl">Logo</div>
       </div>
