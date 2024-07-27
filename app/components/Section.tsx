@@ -5,7 +5,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ children, id }) => {
   return (
-    <div id={id} className="w-full h-screen flex flex-col  justify-center">
+    <div id={id} className="max-w-full h-screen flex flex-col  justify-center">
       {children}
     </div>
   );
@@ -16,7 +16,7 @@ const HalfSection: React.FC<SectionProps> = ({ children, id }) => {
     <div
       id={id}
       style={{ height: "40vh" }}
-      className="overflow-x-hidden w-screen flex flex-col items-center justify-center hide-scrollbar"
+      className="overflow-x-hidden max-w-screen flex flex-col items-center justify-center hide-scrollbar"
     >
       {children}
     </div>
