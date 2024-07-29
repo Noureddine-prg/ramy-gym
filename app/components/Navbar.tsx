@@ -60,7 +60,7 @@ const Navbar = () => {
       </div>
       {/* Sidebar */}
       <div
-        className={`lg:hidden flex absolute z-50 top-0 left-0 transition-transform duration-500 md:w-1/2 w-8/12 ${
+        className={`lg:hidden flex absolute z-50 top-0 left-0 transition-transform duration-500 md:w-1/2 w-full ${
           activeHamburger ? "transform-none" : "-translate-x-full"
         }`}
       >

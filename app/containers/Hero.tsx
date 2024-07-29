@@ -15,7 +15,7 @@ const Hero = () => {
           Your browser does not support the video tag.
         </video>
         <div className="absolute top-0 w-full h-full bg-black bg-opacity-70 saturate-200 flex items-end justify-start sm:items-center pl-0 sm:pl-0 md:pl-12 pb-12">
-          <div className="pl-0 sm:pl-3">
+          <div className="px-4">
             <div className="text-white text-3xl md:text-7xl font-bold mt-4 leading-snug">
               FitBox Brooklyn
             </div>

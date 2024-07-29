@@ -15,7 +15,7 @@ const About = () => {
             </h1>
           </div>
           <div className="mt-10 mb-16">
-            <p className="text-base md:text-lg text-white leading-relaxed">
+            <p className="text-base leading-loose md:text-lg text-white ">
               Fitbox, founded by Ramy Anwar, is dedicated to helping individuals
               achieve their highest physical and mental potential through
               tailored boxing and fitness programs. Our mission is to offer
