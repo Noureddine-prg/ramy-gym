@@ -52,9 +52,9 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
   return (
     <div
       ref={cardRef}
-      className="relative rounded-lg shadow-lg overflow-hidden bg-black m-4 w-full h-48 flex flex-row"
+      className="relative rounded-lg shadow-lg overflow-hidden bg-black m-4 w-full h-48 flex"
     >
-      <div className="relative w-1/2 h-full">
+      <div className="relative w-full h-full flex items-center justify-center">
         {videoLink ? (
           <video
             ref={videoRef}
@@ -70,12 +70,12 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
             <img
               src={imageLink}
               alt="N/A"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           )
         )}
         <div
-          className={`absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-500 ${
+          className={`absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity duration-1000 ${
             isInView ? "opacity-0" : "opacity-100"
           }`}
         >
@@ -83,9 +83,9 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
         </div>
       </div>
       <div
-        className={`relative w-1/2 p-4 flex flex-col justify-center transition-opacity duration-500 ${
-          isInView ? "bg-black bg-opacity-75 opacity-100" : "opacity-0"
-        }`}
+        className={`absolute top-0 right-0 h-full w-full sm:w-1/2 transform transition-transform duration-1000 ${
+          isInView ? "translate-y-0" : "translate-y-full"
+        } bg-black bg-opacity-75 p-4 flex flex-col justify-center`}
       >
         <p className="text-gray-300">{otherText}</p>
       </div>
