@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import Image from "next/image"; // Import Image from Next.js
+import Image from "next/image";
 
 interface WorkoutCardProps {
   videoLink?: string;
@@ -38,7 +38,7 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
           }
         });
       },
-      { threshold: 0, rootMargin: "-50% 0px -50% 0px" } // Adjust rootMargin for precise activation
+      { threshold: 0, rootMargin: "-50% 0px -50% 0px" }
     );
 
     if (currentCardRef) {
@@ -63,7 +63,7 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
             ref={videoRef}
             muted
             preload="auto"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none md:pointer-events-auto"
           >
             <source src={videoLink} type="video/mp4" />
             Your browser does not support this video.
