@@ -35,7 +35,7 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0, rootMargin: "-50% 0px -50% 0px" } // Adjust rootMargin for precise activation
     );
 
     if (cardRef.current) {

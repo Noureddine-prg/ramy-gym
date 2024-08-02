@@ -4,8 +4,11 @@ import { ButtonA } from "../components/Buttons";
 const About = () => {
   return (
     <Section id="about">
-      <div className="w-full h-full flex flex-col-reverse md:flex-row p-5 py-16 md:py-32">
-        <div className="w-full md:w-2/5 mt-4 md:px-5">
+      <div className="relative bg-black bg-opacity-70 w-full h-full flex flex-col-reverse md:flex-row p-5 py-16 md:py-32">
+        {/* Background Blur Effect */}
+        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-lg"></div>
+
+        <div className="relative w-full md:w-2/5 mt-4 md:px-5">
           <div className="text-center md:text-left">
             <h3 className="text-lg md:text-xl font-semibold text-white mb-1">
               About Us
@@ -29,7 +32,7 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="w-full md:w-3/5 flex items-center justify-center mb-10 md:mb-0 md:p-5">
+        <div className="relative w-full md:w-3/5 flex items-center justify-center mb-10 md:mb-0 md:p-5">
           <div className="w-full h-64 md:h-full rounded shadow-lg bg-gray-600"></div>
         </div>
       </div>

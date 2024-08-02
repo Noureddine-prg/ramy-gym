@@ -3,15 +3,18 @@ import { Section } from "../components/Section";
 const Trainers = () => {
   return (
     <Section id="trainer">
-      <div className="h-full w-full px-4 py-8 md:px-20 md:py-16 lg:px-40 lg:py-32 bg-black flex flex-col lg:flex-row items-center justify-center">
-        <div className="flex-shrink-0 w-full h-64 md:h-96 lg:w-1/3 lg:h-full mb-8 lg:mb-0 flex items-center justify-center">
+      <div className="relative h-full w-full px-4 py-8 md:px-20 md:py-16 lg:px-40 lg:py-32 bg-black bg-opacity-70 flex flex-col lg:flex-row items-center justify-center">
+        {/* Background Blur Effect */}
+        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-lg"></div>
+
+        <div className="relative flex-shrink-0 w-full h-64 md:h-96 lg:w-1/3 lg:h-full mb-8 lg:mb-0 flex items-center justify-center">
           <img
             src="/images/coach.jpg"
             alt="Coach"
             className="h-full w-full object-contain"
           />
         </div>
-        <div className="flex flex-col items-center justify-center w-full lg:w-2/3">
+        <div className="relative flex flex-col items-center justify-center w-full lg:w-2/3">
           <div className="text-white text-center w-full px-4 md:px-20 lg:px-0 my-8 lg:mt-0 lg:ml-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Meet The Coach
