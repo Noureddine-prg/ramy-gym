@@ -19,6 +19,8 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
+    const currentCardRef = cardRef.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,13 +41,13 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
       { threshold: 0, rootMargin: "-50% 0px -50% 0px" } // Adjust rootMargin for precise activation
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    if (currentCardRef) {
+      observer.observe(currentCardRef);
     }
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef);
       }
     };
   }, []);

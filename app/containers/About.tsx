@@ -1,5 +1,4 @@
 import { Section } from "../components/Section";
-import { ButtonA } from "../components/Buttons";
 
 const About = () => {
   return (
@@ -26,9 +25,9 @@ const About = () => {
               customized and highly effective workouts to people of all fitness
               levels, ensuring each member reaches their unique fitness goals.
               At Fitbox, we believe in the transformative power of boxing for
-              both body and mind. Whether you're aiming for weight loss, muscle
-              gain, or overall fitness, our personalized programs are designed
-              to meet your specific needs.
+              both body and mind. Whether you&apos;re aiming for weight loss,
+              muscle gain, or overall fitness, our personalized programs are
+              designed to meet your specific needs.
             </p>
           </div>
         </div>

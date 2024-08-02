@@ -26,17 +26,17 @@ const Trainers = () => {
               Ramy grew up in a very athletic environment where he started
               playing sports at the age of seven. He played a wide array of
               sports including Track & Field, Soccer, Swimming, Karate, Judo and
-              Boxing. Ramy's natural talent combined with over twenty years of
-              hard training, led him to develop a very high understanding of the
-              human body mechanism and motor fitness (coordination between the
-              brain and the body).
+              Boxing. Ramy&apos;s natural talent combined with over twenty years
+              of hard training, led him to develop a very high understanding of
+              the human body mechanism and motor fitness (coordination between
+              the brain and the body).
             </p>
             <hr className="border-gray-400 my-4 w-1/2 mx-auto" />
             <p className="text-base md:text-lg leading-relaxed md:leading-loose mb-8">
-              Ramy's high athleticism and strong drive led him to a professional
-              soccer and boxing career. Ramy is now a certified personal trainer
-              (CPT), nutritionist, boxing coach, soccer coach and holds a safe
-              sports certification.
+              Ramy&apos;s high athleticism and strong drive led him to a
+              professional soccer and boxing career. Ramy is now a certified
+              personal trainer (CPT), nutritionist, boxing coach, soccer coach
+              and holds a safe sports certification.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Image from "next/image"; // Import Image from Next.js
+import Image from "next/image";
 
 interface WorkoutCardProps {
   videoLink?: string;
