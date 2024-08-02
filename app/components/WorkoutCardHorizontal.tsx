@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image"; // Import Image from Next.js
 
 interface WorkoutCardProps {
   videoLink?: string;
@@ -67,10 +68,12 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
           </video>
         ) : (
           imageLink && (
-            <img
+            <Image
               src={imageLink}
               alt="N/A"
-              className="w-full h-full object-cover"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
             />
           )
         )}

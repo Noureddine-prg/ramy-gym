@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Image from "next/image"; // Import Image from Next.js
 
 interface WorkoutCardProps {
   videoLink?: string;
@@ -34,7 +35,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 
   return (
     <div
-      className=" relative rounded-lg shadow-lg overflow-hidden bg-black m-4 max-w-sm flex-shrink-0 h-5/6"
+      className="relative rounded-lg shadow-lg overflow-hidden bg-black m-4 max-w-sm flex-shrink-0 h-5/6"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -60,10 +61,12 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
           </video>
         ) : (
           imageLink && (
-            <img
+            <Image
               src={imageLink}
               alt="N/A"
-              className="w-full h-full object-cover object-fit rounded-lg"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
             />
           )
         )}

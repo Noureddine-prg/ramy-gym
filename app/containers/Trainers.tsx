@@ -1,4 +1,5 @@
 import { Section } from "../components/Section";
+import Image from "next/image";
 
 const Trainers = () => {
   return (
@@ -8,10 +9,12 @@ const Trainers = () => {
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-lg"></div>
 
         <div className="relative flex-shrink-0 w-full h-64 md:h-96 lg:w-1/3 lg:h-full mb-8 lg:mb-0 flex items-center justify-center">
-          <img
+          <Image
             src="/images/coach.jpg"
             alt="Coach"
-            className="h-full w-full object-contain"
+            layout="fill"
+            objectFit="contain"
+            className="relative"
           />
         </div>
         <div className="relative flex flex-col items-center justify-center w-full lg:w-2/3">
