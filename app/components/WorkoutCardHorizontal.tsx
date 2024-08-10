@@ -57,13 +57,13 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
       ref={cardRef}
       className="relative rounded-lg shadow-lg overflow-hidden bg-black m-4 w-full h-48 flex"
     >
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
         {videoLink ? (
           <video
             ref={videoRef}
             muted
             preload="auto"
-            className="w-full h-full object-cover pointer-events-none md:pointer-events-auto"
+            className="w-full h-full object-cover"
           >
             <source src={videoLink} type="video/mp4" />
             Your browser does not support this video.
@@ -88,7 +88,7 @@ const WorkoutCardHorizontal: React.FC<WorkoutCardProps> = ({
         </div>
       </div>
       <div
-        className={`absolute top-0 right-0 h-full w-full sm:w-1/2 transform transition-transform duration-1000 ${
+        className={`absolute top-0 right-0 h-full w-full sm:w-1/2 transform transition-transform duration-1000 pointer-events-auto ${
           isInView ? "translate-y-0" : "translate-y-full"
         } bg-black bg-opacity-75 p-4 flex flex-col justify-center`}
       >

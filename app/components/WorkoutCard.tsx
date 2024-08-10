@@ -40,7 +40,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={`relative ${
+        className={`relative pointer-events-none ${
           isHovered ? "grayscale-0" : "grayscale"
         } transition-all duration-500`}
       >
