@@ -10,7 +10,7 @@ const Trainers = () => {
 
         <div className="relative flex-shrink-0 w-full h-64 md:h-96 lg:w-1/3 lg:h-full mb-8 lg:mb-0 flex items-center justify-center">
           <Image
-            src="/images/coach.jpg"
+            src="/images/Coach.jpg"
             alt="Coach"
             layout="fill"
             objectFit="contain"
