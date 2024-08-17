@@ -5,7 +5,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ children, id }) => {
   return (
-    <div id={id} className="max-w-full h-screen flex flex-col justify-center">
+    <div id={id} className="max-w-full min-h-screen flex flex-col justify-center">
       {children}
     </div>
   );
