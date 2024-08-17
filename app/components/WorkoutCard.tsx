@@ -18,7 +18,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const { isActiveCard , handleMouseEnter, handleMouseLeave } = useWorkoutCard(videoRef, cardRef)
+  const { isActiveCard, handleMouseEnter, handleMouseLeave } = useWorkoutCard(videoRef, cardRef)
 
   return (
     <div
@@ -74,7 +74,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 
 function useWorkoutCard(videoRef: any, cardRef: any) {
   const breakpoint = 1536 // this breakpoint is determined by tailwinds 2xl breakpoint
-                          // in px used in the workoutcard's container
+  // in px used in the workoutcard's container
 
   const inView = useInView(cardRef, { threshold: 0, rootMargin: "-50% 0px -50% 0px" });
   const windowDimensions = useWindowDimensions();
@@ -98,6 +98,8 @@ function useWorkoutCard(videoRef: any, cardRef: any) {
   };
 
   useEffect(() => {
+    if (typeof windowDimensions === "undefined") return;
+
     if (windowDimensions.width > breakpoint) setIsActiveCard(false);
 
     if (inView && videoRef.current && windowDimensions.width < breakpoint) {
@@ -108,9 +110,9 @@ function useWorkoutCard(videoRef: any, cardRef: any) {
       videoRef.current.currentTime = 0;
       setIsActiveCard(false);
     }
-  }, [inView, windowDimensions]);
+  }, [inView, windowDimensions, videoRef]);
 
-  return { isActiveCard , handleMouseEnter, handleMouseLeave}
+  return { isActiveCard, handleMouseEnter, handleMouseLeave }
 }
 
 export default WorkoutCard;
