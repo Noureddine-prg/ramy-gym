@@ -3,10 +3,7 @@ import { Section } from "../components/Section";
 const About = () => {
   return (
     <Section id="about">
-      <div className="relative bg-black bg-opacity-70 w-full h-full flex flex-col-reverse md:flex-row p-5 py-16 md:py-32">
-        {/* Background Blur Effect */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-lg"></div>
-
+      <div className="w-full h-full flex flex-col-reverse md:flex-row p-5 py-16 md:py-32">
         <div className="relative w-full md:w-2/5 mt-4 md:px-5">
           <div className="text-center md:text-left">
             <h3 className="text-lg md:text-xl font-semibold text-white mb-1">

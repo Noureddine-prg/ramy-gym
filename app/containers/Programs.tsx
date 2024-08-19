@@ -6,11 +6,6 @@ import WorkoutCard from "../components/WorkoutCard";
 const Programs = () => {
   return (
     <Section id="programs">
-      <div className="relative bg-black bg-opacity-70 m-0 p-0 border-none">
-        {/* Background Blur Effect */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-0 m-0 p-0"></div>
-
-        {/* Desktop layout */}
         <div className="flex">
           <div className="container px-5 py-10 flex-col 2xl:flex-row m-auto flex gap-10">
             <WorkoutCard
@@ -34,7 +29,6 @@ const Programs = () => {
             />
           </div>
         </div>
-      </div>
     </Section>
   );
 };

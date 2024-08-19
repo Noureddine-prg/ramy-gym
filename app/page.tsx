@@ -21,10 +21,13 @@ export default function Home() {
 
       <div className="relative z-10">
         <Hero />
-        <About />
-        <Trainers />
-        <Programs />
-        <FAQ />
+
+        <div className="bg-opacity-70 bg-black bg-opacity-60 backdrop-blur-lg">
+          <About />
+          <Trainers />
+          <Programs />
+          <FAQ />
+        </div>
         {/* <Gallery /> */}
       </div>
     </div>

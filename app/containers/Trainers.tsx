@@ -4,9 +4,8 @@ import Image from "next/image";
 const Trainers = () => {
   return (
     <Section id="trainer">
-      <div className="relative h-full w-full px-4 py-8 md:px-20 md:py-16 lg:px-40 lg:py-32 bg-black bg-opacity-70 flex flex-col lg:flex-row items-center justify-center">
-        {/* Background Blur Effect */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-lg"></div>
+      {/* Background Blur Effect */}
+      <div className="h-full w-full px-4 py-8 md:px-20 md:py-16 lg:px-40 lg:py-32 flex flex-col lg:flex-row items-center justify-center">
 
         <div className="relative flex-shrink-0 w-full h-64 md:h-96 lg:w-1/3 lg:h-full mb-8 lg:mb-0 flex items-center justify-center">
           <Image
