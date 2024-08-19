@@ -7,8 +7,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-video-element::-webkit-media-controls-panel {
-  display: none !important;
-  opacity: 0 !important;
-}

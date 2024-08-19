@@ -34,10 +34,6 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
         {videoLink ? (
           <video
             muted
-            loop
-            controls
-            webkit-playsinline="true"
-            playsInline
             ref={videoRef}
             style={{pointerEvents: "none"}}
             preload="auto"
