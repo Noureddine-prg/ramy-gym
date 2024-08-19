@@ -33,8 +33,13 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
       >
         {videoLink ? (
           <video
-            ref={videoRef}
             muted
+            loop
+            controls
+            webkit-playsinline="true"
+            playsInline
+            ref={videoRef}
+            style={{pointerEvents: "none"}}
             preload="auto"
             className="w-full h-full object-cover"
             onLoadedMetadata={() => {
