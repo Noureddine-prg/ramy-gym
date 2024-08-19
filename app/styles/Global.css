@@ -10,5 +10,5 @@
 
 video-element::-webkit-media-controls-panel {
   display: none !important;
-  opacity: 1 !important;
+  opacity: 0 !important;
 }
