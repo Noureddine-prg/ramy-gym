@@ -41,7 +41,7 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
             ref={videoRef}
             style={{pointerEvents: "none"}}
             preload="auto"
-            className="w-full h-full object-cover"
+            className="video-element w-full h-full object-cover"
             onLoadedMetadata={() => {
               if (videoRef.current) {
                 videoRef.current.currentTime = 2;
