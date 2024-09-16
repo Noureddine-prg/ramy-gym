@@ -18,24 +18,28 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const { isActiveCard, handleMouseEnter, handleMouseLeave } = useWorkoutCard(videoRef, cardRef)
+  const { isActiveCard, handleMouseEnter, handleMouseLeave } = useWorkoutCard(
+    videoRef,
+    cardRef
+  );
 
   return (
     <div
       ref={cardRef}
-      className="2xl:max-h-none max-h-96 relative rounded-lg shadow-lg overflow-hidden bg-black flex-1"
+      className="2xl:max-h-none max-h- relative rounded-lg shadow-lg overflow-hidden bg-black flex-1"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={`relative pointer-events-none ${isActiveCard ? "grayscale-0" : "grayscale"
-          } transition-all duration-500`}
+        className={`relative pointer-events-none ${
+          isActiveCard ? "grayscale-0" : "grayscale"
+        } transition-all duration-500`}
       >
         {videoLink ? (
           <video
             muted
             ref={videoRef}
-            style={{pointerEvents: "none"}}
+            style={{ pointerEvents: "none" }}
             preload="auto"
             className="video-element w-full h-full object-cover"
             onLoadedMetadata={() => {
@@ -61,8 +65,11 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
       </div>
 
       <div
-        className={`p-6 absolute bottom-16 left-0 w-full h-60 opacity-75 bg-black text-white transition-transform duration-500 ${isActiveCard ? "transform translate-y-20" : "transform translate-y-full"
-          }`}
+        className={`p-6 absolute bottom-16 left-0 w-full h-60 opacity-75 bg-black text-white transition-transform duration-500 ${
+          isActiveCard
+            ? "transform translate-y-20"
+            : "transform translate-y-full"
+        }`}
       >
         <h2 className="text-xl font-bold text-white w-full mb-2">
           {headerText}
@@ -74,10 +81,13 @@ const WorkoutCard: React.FC<WorkoutCardProps> = ({
 };
 
 function useWorkoutCard(videoRef: any, cardRef: any) {
-  const breakpoint = 1536 // this breakpoint is determined by tailwinds 2xl breakpoint
+  const breakpoint = 1536; // this breakpoint is determined by tailwinds 2xl breakpoint
   // in px used in the workoutcard's container
 
-  const inView = useInView(cardRef, { threshold: 0, rootMargin: "-50% 0px -50% 0px" });
+  const inView = useInView(cardRef, {
+    threshold: 0,
+    rootMargin: "-50% 0px -50% 0px",
+  });
   const windowDimensions = useWindowDimensions();
 
   const [isActiveCard, setIsActiveCard] = useState<boolean>(false);
@@ -104,16 +114,20 @@ function useWorkoutCard(videoRef: any, cardRef: any) {
     if (windowDimensions.width > breakpoint) setIsActiveCard(false);
 
     if (inView && videoRef.current && windowDimensions.width < breakpoint) {
-      videoRef.current.play()
+      videoRef.current.play();
       setIsActiveCard(true);
-    } else if (!inView && videoRef.current && windowDimensions.width < breakpoint) {
+    } else if (
+      !inView &&
+      videoRef.current &&
+      windowDimensions.width < breakpoint
+    ) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
       setIsActiveCard(false);
     }
   }, [inView, windowDimensions, videoRef]);
 
-  return { isActiveCard, handleMouseEnter, handleMouseLeave }
+  return { isActiveCard, handleMouseEnter, handleMouseLeave };
 }
 
 export default WorkoutCard;

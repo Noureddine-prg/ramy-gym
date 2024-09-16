@@ -1,14 +1,9 @@
 import Hero from "./containers/Hero";
-import About from "./containers/About";
-import FAQ from "./containers/FAQ";
-import Trainers from "./containers/Trainers";
-import Programs from "./containers/Programs";
-import Gallery from "./containers/Gallery";
+import Content from "./containers/Content";
 
 export default function Home() {
   return (
     <div className="relative">
-      {/* Fixed video background */}
       <video
         autoPlay
         loop
@@ -23,12 +18,8 @@ export default function Home() {
         <Hero />
 
         <div className="bg-opacity-70 bg-black bg-opacity-60 backdrop-blur-lg">
-          <About />
-          <Trainers />
-          <Programs />
-          <FAQ />
+          <Content />
         </div>
-        {/* <Gallery /> */}
       </div>
     </div>
   );
