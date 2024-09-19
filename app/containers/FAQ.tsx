@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Section } from "../components/Section";
+import { MedSection } from "../components/Section";
 
 interface FAQItem {
   question: string;
@@ -47,8 +47,8 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <Section id="faq">
-      <div className="h-full flex flex-col md:flex-row justify-between w-full px-4 md:px-20 py-10 text-white bg-black">
+    <MedSection id="faq">
+      <div className="h-full flex flex-col md:flex-row justify-between w-full px-4 md:px-20 pt-10 text-white">
         <div className="w-full md:w-4/6 mb-8 md:mb-0">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Frequently Asked Questions
@@ -84,7 +84,7 @@ const FAQ: React.FC = () => {
           box for address
         </div>
       </div>
-    </Section>
+    </MedSection>
   );
 };
 

@@ -25,9 +25,6 @@ const Navbar = () => {
         <li className="mx-5 text-white no-underline font-bold text-lg">
           <Link href="/programs">Programs</Link>
         </li>
-        <li className="mx-5 text-white no-underline font-bold text-lg">
-          <Link href="/faq">FAQ</Link>
-        </li>
       </ul>
 
       {/* Hamburger Menu */}
