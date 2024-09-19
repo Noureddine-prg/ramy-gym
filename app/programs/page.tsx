@@ -21,21 +21,21 @@ const Programs = () => {
       <div className="absolute bottom-36 left-1/2 transform -translate-x-1/2">
         <div className="flex gap-7">
           <DynamicTextbox
-            image="https://via.placeholder.com/1920x1080?text=Background1"
+            image="/images/Ropes.jpg"
             header="Box 1"
             text="This is Box 1"
             setBackgroundImage={setBackgroundImage}
           />
 
           <DynamicTextbox
-            image="https://via.placeholder.com/1920x1080?text=Background2"
+            image="/images/WeightLifting.jpg"
             header="Box 2"
             text="This is Box 2"
             setBackgroundImage={setBackgroundImage}
           />
 
           <DynamicTextbox
-            image="https://via.placeholder.com/1920x1080?text=Background3"
+            image="/images/Speedbag.jpg"
             header="Box 3"
             text="This is Box 3"
             setBackgroundImage={setBackgroundImage}
