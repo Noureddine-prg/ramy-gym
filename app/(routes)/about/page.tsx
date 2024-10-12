@@ -1,5 +1,5 @@
-import { HalfSection, Section } from "../components/Section";
-import FAQ from "../containers/FAQ";
+import { HalfSection, Section } from "../../components/Section";
+import FAQ from "../../containers/FAQ";
 
 const About = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
-import { Section } from "../components/Section";
-import DynamicTextbox from "../components/DynamicTextbox";
+import { Section } from "../../components/Section";
+import DynamicTextbox from "../../components/DynamicTextbox";
 import React, { useState } from "react";
 
 const Programs = () => {
