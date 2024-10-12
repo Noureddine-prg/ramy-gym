@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 // Define CSS pulse effect for glowing text with light orange glow
 const subtleGlow = `
   .glow {
-    text-shadow: 0 0 8px rgba(255, 200, 100, 0.6); /* Subtle light orange glow */
+    text-shadow: 0 0 8px 0; /* Subtle light orange glow */
   }
 `;
 
@@ -18,7 +18,7 @@ interface AnimatedLinkProps {
 }
 
 const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, text, delay }) => {
-  const words = text.split(" "); // Split phrase into words
+  const words = text.split(" ");
 
   const letterVariants = {
     hidden: { opacity: 0.4, color: "white" },
@@ -87,7 +87,7 @@ export default function Programs() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 2, // Time between each phrase
+        staggerChildren: 1, // Time between each phrase
       },
     },
   };
@@ -112,7 +112,7 @@ export default function Programs() {
                 repeatDelay: 2,
                 repeatType: "loop",
               }}
-              key={Date.now()} // Force the animation to restart by changing key
+              key={Date.now()} // force animation restart doesnt work. need to figure out why
             >
               {/* First Phrase */}
               Discover our{" "}
