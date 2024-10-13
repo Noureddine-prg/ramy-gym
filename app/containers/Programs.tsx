@@ -16,6 +16,7 @@ interface AnimatedLinkProps {
   href: string;
   text: string;
   delay: number;
+  hoveredPhrase: string | null;
   onHoverStart: () => void;
   onHoverEnd: () => void;
 }
@@ -24,6 +25,7 @@ const AnimatedLink: React.FC<AnimatedLinkProps> = ({
   href,
   text,
   delay,
+  hoveredPhrase,
   onHoverStart,
   onHoverEnd,
 }) => {
@@ -39,7 +41,7 @@ const AnimatedLink: React.FC<AnimatedLinkProps> = ({
   };
 
   const containerVariants = {
-    hidden: { opacity: 1 },
+    hidden: { opacity: hoveredPhrase && hoveredPhrase !== text ? 0 : 1 }, // Hide others if not hovered
     visible: {
       opacity: 1,
       transition: {
@@ -54,20 +56,18 @@ const AnimatedLink: React.FC<AnimatedLinkProps> = ({
       className="inline-block"
       variants={containerVariants}
       initial="hidden"
-      whileInView="visible" // Start the animation when the text comes into view
+      whileInView="visible"
       exit="hidden"
-      viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the element is in view
+      viewport={{ once: false, amount: 0.3 }}
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
     >
       {words.map((word, index) => (
         <span key={index} className="inline-block mr-2">
-          {" "}
-          {/* Add spacing between words */}
           {Array.from(word).map((letter, letterIndex) => (
             <motion.span
               key={letterIndex}
-              className="inline-block glow" // Apply glow to letters
+              className="inline-block glow"
               variants={letterVariants}
             >
               {letter}
@@ -103,17 +103,30 @@ export default function Programs() {
       y: 0,
       transition: {
         staggerChildren: 0.25, // Time between each phrase
-        duration: 0.8, // Duration of the easing in effect
-        ease: "easeInOut", // Ease in and ease out effect
+        duration: 0.8,
+        ease: "easeInOut",
       },
     },
     exit: {
       opacity: 0,
       y: 50,
       transition: {
-        duration: 0.5, // Smooth transition out
-        ease: "easeInOut", // Easing out
+        duration: 0.5,
+        ease: "easeInOut",
       },
+    },
+  };
+
+  // Animation variants for the black bars (top and bottom)
+  const barVariants = {
+    hidden: { height: 0 },
+    visible: {
+      height: "10%", // You can adjust this height
+      transition: { duration: 0.5, ease: "easeInOut" },
+    },
+    exit: {
+      height: 0,
+      transition: { duration: 0.5, ease: "easeInOut" },
     },
   };
 
@@ -126,70 +139,96 @@ export default function Programs() {
 
       <Section bgColor="black">
         <div className="relative flex items-center justify-center h-screen">
-          {/* Background Video */}
           {hoveredPhrase && (
-            <div className="absolute inset-0 z-0">
+            <motion.div
+              className="absolute inset-0 z-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              key={hoveredPhrase}
+            >
               <video
-                src={`/videos/${hoveredPhrase}.mp4`} // Adjust video path based on phrase
+                src={`/videos/${hoveredPhrase}.mp4`}
                 autoPlay
                 loop
                 muted
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gray-800 opacity-20"></div>{" "}
-              {/* Gray overlay */}
-            </div>
+              <div className="absolute inset-0 bg-gray-800 opacity-20"></div>
+            </motion.div>
+          )}
+
+          {/* Black Bars (Top and Bottom) */}
+          {hoveredPhrase && (
+            <>
+              <motion.div
+                className="absolute top-0 left-0 right-0 bg-black z-10"
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={barVariants}
+              />
+              <motion.div
+                className="absolute bottom-0 left-0 right-0 bg-black z-10"
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                variants={barVariants}
+              />
+            </>
           )}
 
           {/* Text Content */}
-          <div className="relative z-10 text-center px-4 md:px-8 lg:px-16">
+          <div className="relative z-20 text-center px-2 md:px-4 lg:px-6">
             <motion.div
-              className="text-gray-500 text-3xl md:text-6xl lg:text-7xl font-bold leading-tight"
+              className="text-gray-500 text-4xl md:text-3xl lg:text-5xl font-bold leading-relaxed md:leading-loose lg:leading-loose tracking-tight"
               initial="hidden"
-              whileInView="visible" // Start animation when in view
+              whileInView="visible"
               exit="exit"
-              viewport={{ once: false, amount: 0.3 }} // Start when 30% is in view
+              viewport={{ once: false, amount: 0.3 }}
               variants={sequenceContainerVariants}
               transition={{
-                repeat: Infinity, // Repeat the animation
+                repeat: Infinity,
                 repeatDelay: 2,
                 repeatType: "loop",
               }}
             >
               {/* First Phrase */}
-              Discover our{" "}
+              Master the basics with our{" "}
               <Link href={textSequence[0].href}>
                 <AnimatedLink
                   href={textSequence[0].href}
                   text={textSequence[0].text}
                   delay={textSequence[0].delay}
+                  hoveredPhrase={hoveredPhrase}
                   onHoverStart={() => setHoveredPhrase("Wrapping")}
                   onHoverEnd={() => setHoveredPhrase(null)}
                 />
               </Link>
-              , designed to teach the fundamentals of boxing and take your
-              skills to the next level. Explore {/* Second Phrase */}
+              . Build strength in our{" "}
               <Link href={textSequence[1].href}>
                 <AnimatedLink
                   href={textSequence[1].href}
                   text={textSequence[1].text}
                   delay={textSequence[1].delay}
-                  onHoverStart={() => setHoveredPhrase("Weights")}
+                  hoveredPhrase={hoveredPhrase}
+                  onHoverStart={() => setHoveredPhrase("WeightTraining")}
                   onHoverEnd={() => setHoveredPhrase(null)}
                 />
-              </Link>
-              where you can build power and endurance with expertly crafted
-              sessions. Benefit from {/* Third Phrase */}
+              </Link>{" "}
+              sessions. Get personalized coaching with our{" "}
               <Link href={textSequence[2].href}>
                 <AnimatedLink
                   href={textSequence[2].href}
                   text={textSequence[2].text}
                   delay={textSequence[2].delay}
+                  hoveredPhrase={hoveredPhrase}
                   onHoverStart={() => setHoveredPhrase("resting")}
                   onHoverEnd={() => setHoveredPhrase(null)}
                 />
               </Link>
-              , with one-on-one guidance from our expert trainers.
+              .
             </motion.div>
           </div>
         </div>
