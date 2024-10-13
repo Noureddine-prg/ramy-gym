@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { Section } from "../components/Section";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 // Define CSS pulse effect for glowing text with light orange glow
 const subtleGlow = `
   .glow {
-    text-shadow: 0 0 8px 0; /* Subtle light orange glow */
+    text-shadow: 0 0 8px fffff; /* Subtle light orange glow */
   }
 `;
 
@@ -15,9 +16,17 @@ interface AnimatedLinkProps {
   href: string;
   text: string;
   delay: number;
+  onHoverStart: () => void;
+  onHoverEnd: () => void;
 }
 
-const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, text, delay }) => {
+const AnimatedLink: React.FC<AnimatedLinkProps> = ({
+  href,
+  text,
+  delay,
+  onHoverStart,
+  onHoverEnd,
+}) => {
   const words = text.split(" ");
 
   const letterVariants = {
@@ -45,8 +54,11 @@ const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, text, delay }) => {
       className="inline-block"
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible" // Start the animation when the text comes into view
       exit="hidden"
+      viewport={{ once: false, amount: 0.3 }} // Trigger when 30% of the element is in view
+      onHoverStart={onHoverStart}
+      onHoverEnd={onHoverEnd}
     >
       {words.map((word, index) => (
         <span key={index} className="inline-block mr-2">
@@ -68,26 +80,39 @@ const AnimatedLink: React.FC<AnimatedLinkProps> = ({ href, text, delay }) => {
 };
 
 export default function Programs() {
+  const [hoveredPhrase, setHoveredPhrase] = useState<string | null>(null);
+
   const textSequence = [
     { href: "/programs#boxing-classes", text: "Boxing Classes", delay: 0 },
     {
       href: "/programs#strength-conditioning",
       text: "Strength & Conditioning",
-      delay: 2.5,
+      delay: 1,
     },
     {
       href: "/programs#personal-training",
       text: "Personal Training",
-      delay: 5,
+      delay: 2.5,
     },
   ];
 
   const sequenceContainerVariants = {
-    hidden: { opacity: 1 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 1, // Time between each phrase
+        staggerChildren: 0.25, // Time between each phrase
+        duration: 0.8, // Duration of the easing in effect
+        ease: "easeInOut", // Ease in and ease out effect
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: 50,
+      transition: {
+        duration: 0.5, // Smooth transition out
+        ease: "easeInOut", // Easing out
       },
     },
   };
@@ -100,19 +125,36 @@ export default function Programs() {
       </style>
 
       <Section bgColor="black">
-        <div className="flex items-center justify-center h-screen">
-          <div className="text-center px-4 md:px-8 lg:px-16">
-            <motion.p
+        <div className="relative flex items-center justify-center h-screen">
+          {/* Background Video */}
+          {hoveredPhrase && (
+            <div className="absolute inset-0 z-0">
+              <video
+                src={`/videos/${hoveredPhrase}.mp4`} // Adjust video path based on phrase
+                autoPlay
+                loop
+                muted
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gray-800 opacity-20"></div>{" "}
+              {/* Gray overlay */}
+            </div>
+          )}
+
+          {/* Text Content */}
+          <div className="relative z-10 text-center px-4 md:px-8 lg:px-16">
+            <motion.div
               className="text-gray-500 text-3xl md:text-6xl lg:text-7xl font-bold leading-tight"
               initial="hidden"
-              animate="visible"
+              whileInView="visible" // Start animation when in view
+              exit="exit"
+              viewport={{ once: false, amount: 0.3 }} // Start when 30% is in view
               variants={sequenceContainerVariants}
               transition={{
-                repeat: Infinity, // Ensure repeat of the animation
+                repeat: Infinity, // Repeat the animation
                 repeatDelay: 2,
                 repeatType: "loop",
               }}
-              key={Date.now()} // force animation restart doesnt work. need to figure out why
             >
               {/* First Phrase */}
               Discover our{" "}
@@ -121,6 +163,8 @@ export default function Programs() {
                   href={textSequence[0].href}
                   text={textSequence[0].text}
                   delay={textSequence[0].delay}
+                  onHoverStart={() => setHoveredPhrase("Wrapping")}
+                  onHoverEnd={() => setHoveredPhrase(null)}
                 />
               </Link>
               , designed to teach the fundamentals of boxing and take your
@@ -130,6 +174,8 @@ export default function Programs() {
                   href={textSequence[1].href}
                   text={textSequence[1].text}
                   delay={textSequence[1].delay}
+                  onHoverStart={() => setHoveredPhrase("Weights")}
+                  onHoverEnd={() => setHoveredPhrase(null)}
                 />
               </Link>
               where you can build power and endurance with expertly crafted
@@ -139,10 +185,12 @@ export default function Programs() {
                   href={textSequence[2].href}
                   text={textSequence[2].text}
                   delay={textSequence[2].delay}
+                  onHoverStart={() => setHoveredPhrase("resting")}
+                  onHoverEnd={() => setHoveredPhrase(null)}
                 />
               </Link>
               , with one-on-one guidance from our expert trainers.
-            </motion.p>
+            </motion.div>
           </div>
         </div>
       </Section>
