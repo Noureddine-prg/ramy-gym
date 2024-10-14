@@ -2,64 +2,119 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Section } from "../components/Section";
-import Image from "next/image"; // Import Next.js Image component
 
 export default function Location() {
   const fadeInVariant = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.2 } },
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const bounceArrow = {
+    visible: {
+      opacity: 1,
+      y: [0, 15, 0],
+      transition: {
+        duration: 1.5,
+        ease: "easeInOut",
+        repeat: Infinity,
+      },
+    },
+  };
+
+  const hoverTextVariant = {
+    initial: { color: "gray" },
+    hover: {
+      color: "white",
+      y: -5,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const handleScrollToPrograms = () => {
+    const element = document.getElementById("programs");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
-    <Section bgColor="black">
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInVariant}
-        className="section-content h-screen snap-center flex items-center justify-center"
-      >
-        <div className="flex flex-col md:flex-row items-center justify-center text-left w-full h-full">
-          {/* Left-hand side Image Box  */}
-          <div className="w-full md:w-1/2 h-full relative rounded-lg shadow-lg overflow-hidden">
-            <Image
-              src="/images/gymsetup.jpg"
-              alt="Coach Image"
-              className="object-cover"
-              layout="fill"
-              priority
-            />
-          </div>
+    <>
+      <Section bgColor="transparent">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="h-screen flex flex-col items-center justify-center text-center space-y-6 p-6 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg"
+        >
+          <motion.div
+            variants={fadeInVariant}
+            className="bg-black p-16 rounded-lg flex flex-col space-y-8"
+          >
+            <motion.div
+              variants={fadeInVariant}
+              className="text-white text-4xl md:text-6xl font-bold leading-loose"
+            >
+              8415 4th Ave, Brooklyn, NY
+            </motion.div>
 
-          {/* Right-hand side Text Content  */}
-          <div className="w-full md:w-1/2 h-full flex flex-col justify-between items-start p-6 space-y-6">
-            {/* Header */}
-            {/* Business Hours */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white mb-2">
-                Business Hours
-              </h3>
-              <p className="text-gray-400 text-lg">
-                Mon - Fri: 9:00 AM - 7:00 PM <br />
-                Appointment Only
-              </p>
-            </div>
+            <motion.div
+              variants={fadeInVariant}
+              className="text-gray-300 text-2xl md:text-4xl leading-loose"
+            >
+              <p>Mon - Fri: 9 AM - 7 PM</p>
+              <p>Appointment Only</p>
+            </motion.div>
 
-            <div>
-              <p className="text-gray-400 text-lg">
-                8415 4th Ave, Brooklyn, NY 11209
-              </p>
-            </div>
+            <motion.div variants={fadeInVariant}>
+              <a
+                href="/appointment"
+                className="px-8 py-4 text-lg md:text-xl bg-black text-white rounded-lg shadow-lg hover:bg-orange-600 transition duration-300"
+              >
+                Book an Appointment
+              </a>
+            </motion.div>
+          </motion.div>
 
-            {/* Appointment Link */}
-            <div className="flex-grow">
-              <Link href="/appointment">Book Now</Link>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </Section>
+          <motion.div
+            variants={bounceArrow}
+            initial="hidden"
+            animate="visible"
+            className="absolute bottom-12 cursor-pointer flex flex-col items-center"
+            onClick={handleScrollToPrograms}
+            whileHover="hover"
+          >
+            <motion.span
+              className="text-gray-400 text-sm"
+              variants={hoverTextVariant}
+              initial="initial"
+              animate="visible"
+            >
+              Programs
+            </motion.span>
+
+            {/* Arrow */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="white"
+              className="w-10 h-10"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </motion.div>
+        </motion.div>
+      </Section>
+    </>
   );
 }

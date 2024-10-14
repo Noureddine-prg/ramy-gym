@@ -18,6 +18,9 @@ const Content = () => {
       {/* Location Section */}
       <Location />
 
+      {/* Programs Section */}
+      <Programs />
+
       {/* About Section */}
       <Section bgColor="black">
         <motion.div
@@ -40,9 +43,6 @@ const Content = () => {
           </div>
         </motion.div>
       </Section>
-
-      {/* Programs Section */}
-      <Programs />
 
       {/* Trainer Section */}
       <Section bgColor="black">

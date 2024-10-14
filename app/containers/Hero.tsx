@@ -18,7 +18,7 @@ const Hero = () => {
             RISE UP FAST
           </div>
           <div className="border- mt-4 md:mt-10 flex w-full md:w-2/6 align-bottom">
-            <ButtonA>Book Session</ButtonA>
+            <ButtonA>Join Now</ButtonA>
           </div>
         </div>
       </div>
