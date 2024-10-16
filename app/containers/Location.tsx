@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Section } from "../components/Section";
+import ScrollArrow from "../components/ScrollArrow";
 
 export default function Location() {
   const fadeInVariant = {
@@ -14,63 +15,51 @@ export default function Location() {
     },
   };
 
-  const bounceArrow = {
-    visible: {
-      opacity: 1,
-      y: [0, 15, 0],
-      transition: {
-        duration: 1.5,
-        ease: "easeInOut",
-        repeat: Infinity,
-      },
-    },
-  };
-
-  const hoverTextVariant = {
-    initial: { color: "gray" },
-    hover: {
-      color: "white",
-      y: -5,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const handleScrollToPrograms = () => {
-    const element = document.getElementById("programs");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <>
-      <Section bgColor="transparent">
+    <Section bgColor="transparent">
+      <div className="h-screen flex flex-row">
+        {/* Left-hand side - 40% width with vertical padding */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="h-screen flex flex-col items-center justify-center text-center space-y-6 p-6 bg-white bg-opacity-10 backdrop-blur-sm rounded-lg"
+          variants={fadeInVariant}
+          className="w-2/5 h-full bg-black flex  p-3"
+        >
+          <motion.div className="text-white text-3xl  md:text-5xl font-bold text-left">
+            Train with a Professional Boxer
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="w-3/5 h-full flex items-center justify-center p-4"
         >
           <motion.div
             variants={fadeInVariant}
-            className="bg-black p-16 rounded-lg flex flex-col space-y-8"
+            className="bg-gray-900 rounded-lg flex flex-col space-y-6 w-full max-w-xl p-8"
           >
+            {/* Location */}
             <motion.div
               variants={fadeInVariant}
-              className="text-white text-4xl md:text-6xl font-bold leading-loose"
+              className="text-white text-3xl md:text-5xl font-bold leading-relaxed text-center"
             >
               8415 4th Ave, Brooklyn, NY
             </motion.div>
 
+            {/* Business Hours */}
             <motion.div
               variants={fadeInVariant}
-              className="text-gray-300 text-2xl md:text-4xl leading-loose"
+              className="text-gray-300 text-xl md:text-3xl leading-relaxed text-center"
             >
               <p>Mon - Fri: 9 AM - 7 PM</p>
               <p>Appointment Only</p>
             </motion.div>
 
-            <motion.div variants={fadeInVariant}>
+            {/* CTA Button */}
+            <motion.div variants={fadeInVariant} className="text-center">
               <a
                 href="/appointment"
                 className="px-8 py-4 text-lg md:text-xl bg-black text-white rounded-lg shadow-lg hover:bg-orange-600 transition duration-300"
@@ -79,42 +68,13 @@ export default function Location() {
               </a>
             </motion.div>
           </motion.div>
-
-          <motion.div
-            variants={bounceArrow}
-            initial="hidden"
-            animate="visible"
-            className="absolute bottom-12 cursor-pointer flex flex-col items-center"
-            onClick={handleScrollToPrograms}
-            whileHover="hover"
-          >
-            <motion.span
-              className="text-gray-400 text-sm"
-              variants={hoverTextVariant}
-              initial="initial"
-              animate="visible"
-            >
-              Programs
-            </motion.span>
-
-            {/* Arrow */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-              stroke="white"
-              className="w-10 h-10"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </motion.div>
         </motion.div>
-      </Section>
-    </>
+      </div>
+
+      {/* Scroll Arrow */}
+      <div className="absolute bottom-12 w-full flex justify-center">
+        <ScrollArrow section="programs" labelText="Programs" />
+      </div>
+    </Section>
   );
 }

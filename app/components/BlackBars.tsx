@@ -10,7 +10,7 @@ const BlackBars: React.FC<BlackBarsProps> = ({ hoveredPhrase }) => {
   const barVariants = {
     hidden: { height: 0 },
     visible: {
-      height: "10%", // height of the black bars
+      height: "13%", // height of the black bars
       transition: { duration: 0.5, ease: "easeInOut" },
     },
     exit: {

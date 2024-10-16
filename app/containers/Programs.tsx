@@ -5,6 +5,7 @@ import BlackBars from "../components/BlackBars";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import ScrollArrow from "../components/ScrollArrow";
 
 // Main Programs Component
 export default function Programs() {
@@ -105,6 +106,7 @@ export default function Programs() {
             .
           </motion.div>
         </div>
+        <ScrollArrow section="about" labelText="Our Story" />
       </div>
     </Section>
   );
